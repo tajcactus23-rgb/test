@@ -229,7 +229,7 @@ fun StatColumn(
     value: String,
     label: String,
     color: androidx.compose.ui.graphics.Color,
-    colors: BlueMeanieTheme.colors
+    colors: BlueMeanieColors
 ) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
@@ -250,7 +250,7 @@ fun StatColumn(
 @Composable
 fun ThreatCard(
     device: ScannedDevice,
-    colors: BlueMeanieTheme.colors
+    colors: BlueMeanieColors
 ) {
     val riskLevel = when {
         device.confidence >= 80 -> "HIGH"
@@ -329,7 +329,7 @@ fun ThreatCard(
 }
 
 @Composable
-fun EmptyThreatsCard(colors: BlueMeanieTheme.colors) {
+fun EmptyThreatsCard(colors: BlueMeanieColors) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -366,7 +366,7 @@ fun EmptyThreatsCard(colors: BlueMeanieTheme.colors) {
 @Composable
 fun DetectionPatternsCard(
     devices: List<ScannedDevice>,
-    colors: BlueMeanieTheme.colors
+    colors: BlueMeanieColors
 ) {
     // Analyze detection patterns
     val hourDistribution = remember(devices) {

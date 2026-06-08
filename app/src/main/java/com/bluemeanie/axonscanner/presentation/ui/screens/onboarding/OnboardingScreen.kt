@@ -9,7 +9,9 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.*
 import androidx.compose.animation.core.*
-import androidx.compose.foundation.*
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -276,7 +278,7 @@ fun OnboardingScreen(
 fun WelcomeStep(
     onLogoTap: () -> Unit,
     showMorseToast: Boolean,
-    colors: BlueMeanieTheme.colors
+    colors: BlueMeanieColors
 ) {
     val infiniteTransition = rememberInfiniteTransition(label = "welcome")
     val scale by infiniteTransition.animateFloat(
@@ -363,7 +365,7 @@ fun WelcomeStep(
 fun CallSignStep(
     callsign: String,
     onCallsignChange: (String) -> Unit,
-    colors: BlueMeanieTheme.colors
+    colors: BlueMeanieColors
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -427,7 +429,7 @@ fun PermissionStep(
     bullets: List<String>,
     isGranted: Boolean,
     onRequest: () -> Unit,
-    colors: BlueMeanieTheme.colors
+    colors: BlueMeanieColors
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -523,7 +525,7 @@ fun PermissionStep(
 }
 
 @Composable
-fun BatteryOptimizationStep(colors: BlueMeanieTheme.colors) {
+fun BatteryOptimizationStep(colors: BlueMeanieColors) {
     val context = LocalContext.current
 
     Column(
@@ -613,7 +615,7 @@ fun ReadyStep(
     bluetoothGranted: Boolean,
     locationGranted: Boolean,
     notificationsGranted: Boolean,
-    colors: BlueMeanieTheme.colors
+    colors: BlueMeanieColors
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -680,7 +682,7 @@ fun ReadyStep(
 fun ChecklistItem(
     label: String,
     isComplete: Boolean,
-    colors: BlueMeanieTheme.colors,
+    colors: BlueMeanieColors,
     note: String? = null
 ) {
     Row(

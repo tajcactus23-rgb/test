@@ -51,7 +51,8 @@ object ThemeEngine {
         val surface: Color,
         val onPrimary: Color,
         val onSurface: Color,
-        val glow: Color
+        val glow: Color,
+        val border: Color
     )
     
     val themes = mapOf(
@@ -64,7 +65,9 @@ object ThemeEngine {
             surface = CardBg,
             onPrimary = TextPrimary,
             onSurface = TextPrimary,
-            glow = ElectricCyan
+            glow = ElectricCyan,,
+            border = BorderDefault
+            border = BorderDefault
         ),
         "CARBON" to ThemeColors(
             name = "Carbon",
@@ -75,7 +78,9 @@ object ThemeEngine {
             surface = Color(0xFF111111),
             onPrimary = TextPrimary,
             onSurface = TextPrimary,
-            glow = Color(0xFF00FF88)
+            glow = Color(0xFF00FF88),,
+            border = BorderDefault
+            border = BorderDefault
         ),
         "TITANIUM" to ThemeColors(
             name = "Titanium",
@@ -86,7 +91,9 @@ object ThemeEngine {
             surface = Color(0xFF1A1A1A),
             onPrimary = Color(0xFF000000),
             onSurface = TextPrimary,
-            glow = Color(0xFFC0C0C0)
+            glow = Color(0xFFC0C0C0),,
+            border = BorderDefault
+            border = BorderDefault
         ),
         "AURORA" to ThemeColors(
             name = "Aurora",
@@ -97,7 +104,8 @@ object ThemeEngine {
             surface = Color(0xFF0A0A20),
             onPrimary = TextPrimary,
             onSurface = TextPrimary,
-            glow = Color(0xFF00FFFF)
+            glow = Color(0xFF00FFFF),
+            border = BorderDefault
         ),
         "MONOLITH" to ThemeColors(
             name = "Monolith",
@@ -108,7 +116,8 @@ object ThemeEngine {
             surface = Color(0xFF0A0A0A),
             onPrimary = Color(0xFF000000),
             onSurface = TextPrimary,
-            glow = Color(0xFFFFFFFF)
+            glow = Color(0xFFFFFFFF),
+            border = BorderDefault
         ),
         "ARCTIC" to ThemeColors(
             name = "Arctic",
@@ -119,7 +128,8 @@ object ThemeEngine {
             surface = Color(0xFF001020),
             onPrimary = TextPrimary,
             onSurface = TextPrimary,
-            glow = Color(0xFF00BFFF)
+            glow = Color(0xFF00BFFF),
+            border = BorderDefault
         ),
         "MIDNIGHT" to ThemeColors(
             name = "Midnight",
@@ -130,7 +140,8 @@ object ThemeEngine {
             surface = Color(0xFF0A0010),
             onPrimary = TextPrimary,
             onSurface = TextPrimary,
-            glow = Color(0xFF8A2BE2)
+            glow = Color(0xFF8A2BE2),
+            border = BorderDefault
         ),
         "QUANTUM" to ThemeColors(
             name = "Quantum",
@@ -141,7 +152,8 @@ object ThemeEngine {
             surface = Indigo,
             onPrimary = TextPrimary,
             onSurface = TextPrimary,
-            glow = Color(0xFF00F0FF)
+            glow = Color(0xFF00F0FF),
+            border = BorderDefault
         ),
         "NOVA" to ThemeColors(
             name = "Nova",
@@ -152,7 +164,8 @@ object ThemeEngine {
             surface = Color(0xFF150500),
             onPrimary = TextPrimary,
             onSurface = TextPrimary,
-            glow = Color(0xFFFF6600)
+            glow = Color(0xFFFF6600),
+            border = BorderDefault
         ),
         "GLASS" to ThemeColors(
             name = "Glass",
@@ -163,7 +176,8 @@ object ThemeEngine {
             surface = Color(0xFF0A1520),
             onPrimary = TextPrimary,
             onSurface = TextPrimary,
-            glow = Color(0xFF00F0FF)
+            glow = Color(0xFF00F0FF),
+            border = BorderDefault
         ),
         "INFERNO" to ThemeColors(
             name = "Inferno",
@@ -174,7 +188,8 @@ object ThemeEngine {
             surface = Color(0xFF150500),
             onPrimary = TextPrimary,
             onSurface = TextPrimary,
-            glow = Color(0xFFFF4500)
+            glow = Color(0xFFFF4500),
+            border = BorderDefault
         ),
         "SPECTRE" to ThemeColors(
             name = "Spectre",
@@ -185,7 +200,8 @@ object ThemeEngine {
             surface = Color(0xFF0A0A20),
             onPrimary = TextPrimary,
             onSurface = TextPrimary,
-            glow = Color(0xFF9B59B6)
+            glow = Color(0xFF9B59B6),
+            border = BorderDefault
         ),
         "EMBER" to ThemeColors(
             name = "Ember",
@@ -196,7 +212,8 @@ object ThemeEngine {
             surface = Color(0xFF150808),
             onPrimary = TextPrimary,
             onSurface = TextPrimary,
-            glow = Color(0xFFFF1493)
+            glow = Color(0xFFFF1493),
+            border = BorderDefault
         ),
         "PHANTOM" to ThemeColors(
             name = "Phantom",
@@ -207,7 +224,8 @@ object ThemeEngine {
             surface = Color(0xFF0A0010),
             onPrimary = TextPrimary,
             onSurface = TextPrimary,
-            glow = Color(0xFF4B0082)
+            glow = Color(0xFF4B0082),
+            border = BorderDefault
         ),
         "VENOM" to ThemeColors(
             name = "Venom",
@@ -218,7 +236,8 @@ object ThemeEngine {
             surface = Color(0xFF000A00),
             onPrimary = Color(0xFF000000),
             onSurface = TextPrimary,
-            glow = Color(0xFF00FF00)
+            glow = Color(0xFF00FF00),
+            border = BorderDefault
         )
     )
     
