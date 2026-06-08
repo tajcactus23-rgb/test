@@ -65,8 +65,7 @@ object ThemeEngine {
             surface = CardBg,
             onPrimary = TextPrimary,
             onSurface = TextPrimary,
-            glow = ElectricCyan,,
-            border = BorderDefault
+            glow = ElectricCyan,
             border = BorderDefault
         ),
         "CARBON" to ThemeColors(
@@ -78,8 +77,7 @@ object ThemeEngine {
             surface = Color(0xFF111111),
             onPrimary = TextPrimary,
             onSurface = TextPrimary,
-            glow = Color(0xFF00FF88),,
-            border = BorderDefault
+            glow = Color(0xFF00FF88),
             border = BorderDefault
         ),
         "TITANIUM" to ThemeColors(
@@ -91,8 +89,7 @@ object ThemeEngine {
             surface = Color(0xFF1A1A1A),
             onPrimary = Color(0xFF000000),
             onSurface = TextPrimary,
-            glow = Color(0xFFC0C0C0),,
-            border = BorderDefault
+            glow = Color(0xFFC0C0C0),
             border = BorderDefault
         ),
         "AURORA" to ThemeColors(
