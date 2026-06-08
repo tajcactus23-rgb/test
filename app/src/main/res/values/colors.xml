@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base Colors -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- Deep Space Purple Theme -->
+    <color name="deep_space_purple">#FF1A0A2E</color>
+    <color name="indigo">#FF2D1B69</color>
+    <color name="deep_purple">#FF0F0518</color>
+    
+    <!-- Primary Accents -->
+    <color name="electric_cyan">#FF00F0FF</color>
+    <color name="cyan_glow">#FF67E8F9</color>
+    <color name="hot_magenta">#FFFF006E</color>
+    <color name="magenta_glow">#FFFF69B4</color>
+    
+    <!-- UI Colors -->
+    <color name="bg_card">#FF0A0A0A</color>
+    <color name="bg_input">#FF141414</color>
+    <color name="bg_surface">#FF000000</color>
+    <color name="border_default">#FF2D2D55</color>
+    <color name="border_active">#FF00F0FF</color>
+    
+    <!-- Status Colors -->
+    <color name="success_green">#FF34D399</color>
+    <color name="warning_yellow">#FFF6D365</color>
+    <color name="alert_orange">#FFFB923C</color>
+    <color name="danger_red">#FFF87171</color>
+    <color name="error_red">#FFEF4444</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#FFFFFFFF</color>
+    <color name="text_secondary">#FF94A3B8</color>
+    <color name="text_muted">#FF64748B</color>
+    
+    <!-- Device Type Colors -->
+    <color name="body_cam">#FF00F0FF</color>
+    <color name="taser">#FFF87171</color>
+    <color name="flex">#FFF6D365</color>
+    <color name="unknown_device">#FF94A3B8</color>
+    
+    <!-- Radar Colors -->
+    <color name="radar_background">#FF1A1A3A</color>
+    <color name="radar_ring">#FF2D2D55</color>
+    <color name="radar_sweep">#FF00F0FF</color>
+    
+    <!-- Theme Colors - Aurora -->
+    <color name="aurora_blue">#FF3B82F6</color>
+    <color name="aurora_purple">#FF8B5CF6</color>
+    <color name="aurora_pink">#FFEC4899</color>
+    <color name="aurora_cyan">#FF06B6D4</color>
+</resources>

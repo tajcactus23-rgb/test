@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Info -->
+    <string name="app_name">BlueMeanie</string>
+    <string name="app_version">3.0.0 APEX</string>
+    
+    <!-- Navigation -->
+    <string name="nav_radar">RADAR</string>
+    <string name="nav_feed">FEED</string>
+    <string name="nav_heatmap">HEATMAP</string>
+    <string name="nav_intel">INTEL</string>
+    <string name="nav_gear">GEAR</string>
+    
+    <!-- Radar Screen -->
+    <string name="radar_title">BLUE<font color="#EF4444">MEANIE</font></string>
+    <string name="radar_scan">INITIATE SCAN</string>
+    <string name="radar_stop">ABORT SCAN</string>
+    <string name="radar_devices">DEVICES</string>
+    <string name="radar_axon_hits">AXON HITS</string>
+    <string name="radar_duration">DURATION</string>
+    <string name="radar_peak">SIGNAL PEAK</string>
+    <string name="radar_no_devices">NO DEVICES IN RANGE</string>
+    <string name="radar_tap_to_scan">TAP SCAN TO START</string>
+    
+    <!-- Device Types -->
+    <string name="device_body_cam">BODY CAM</string>
+    <string name="device_taser">TASER</string>
+    <string name="device_flex">FLEX</string>
+    <string name="device_unknown">UNKNOWN</string>
+    <string name="device_axon">AXON</string>
+    
+    <!-- Scan Modes -->
+    <string name="mode_tactical">TACTICAL</string>
+    <string name="mode_stealth">STEALTH</string>
+    <string name="mode_sweep">SWEEP</string>
+    <string name="mode_tactical_desc">Low latency, high battery usage. Best for active field operations.</string>
+    <string name="mode_stealth_desc">Low power, periodic scanning. Ideal for extended surveillance.</string>
+    <string name="mode_sweep_desc">Interval burst scanning. Balanced performance for general use.</string>
+    
+    <!-- Status HUD -->
+    <string name="hud_ble">BLE</string>
+    <string name="hud_perm">PERM</string>
+    <string name="hud_ntfy">NTFY</string>
+    <string name="hud_map">MAP</string>
+    <string name="hud_db">DB</string>
+    <string name="hud_scan">SCAN</string>
+    <string name="hud_root">ROOT</string>
+    <string name="hud_net">NET</string>
+    <string name="hud_status_ok">OPERATIONAL</string>
+    <string name="hud_status_busy">BUSY</string>
+    <string name="hud_status_error">ERROR</string>
+    <string name="hud_status_offline">OFFLINE</string>
+    
+    <!-- Feed Screen -->
+    <string name="feed_title">DETECTION FEED</string>
+    <string name="feed_filter_all">ALL</string>
+    <string name="feed_filter_axon">AXON</string>
+    <string name="feed_filter_threats">THREATS</string>
+    <string name="feed_filter_session">SESSION</string>
+    <string name="feed_sort_time">TIME</string>
+    <string name="feed_sort_signal">SIGNAL</string>
+    <string name="feed_sort_distance">DISTANCE</string>
+    <string name="feed_empty">NO CONTACTS MATCH FILTER</string>
+    <string name="feed_start_scan">START SCANNING</string>
+    
+    <!-- Heatmap Screen -->
+    <string name="heatmap_title">HEAT DENSITY</string>
+    <string name="heatmap_my_detections">MY DETECTIONS</string>
+    <string name="heatmap_community">COMMUNITY</string>
+    <string name="heatmap_auto_center">AUTO CENTER</string>
+    <string name="heatmap_no_location">LOCATION UNAVAILABLE</string>
+    
+    <!-- Intel Screen -->
+    <string name="intel_title">THREAT INTEL</string>
+    <string name="intel_top_threats">TOP THREATS</string>
+    <string name="intel_patterns">DETECTION PATTERNS</string>
+    <string name="intel_export">EXPORT REPORT</string>
+    <string name="intel_no_threats">NO AXON THREATS LOGGED</string>
+    <string name="intel_risk_high">HIGH RISK</string>
+    <string name="intel_risk_medium">MEDIUM RISK</string>
+    <string name="intel_risk_low">LOW RISK</string>
+    
+    <!-- Settings Screen -->
+    <string name="settings_title">SYSTEM GEAR</string>
+    <string name="settings_scan_mode">SCAN MODE</string>
+    <string name="settings_theme">THEME ENGINE</string>
+    <string name="settings_background">BACKGROUND ENGINE</string>
+    <string name="settings_font">FONT ENGINE</string>
+    <string name="settings_radar">RADAR ENGINE</string>
+    <string name="settings_alerts">ALERT SYSTEM</string>
+    <string name="settings_sound">SOUND EFFECTS</string>
+    <string name="settings_vibration">HAPTIC VIBRATION</string>
+    <string name="settings_notifications">PUSH NOTIFICATIONS</string>
+    <string name="settings_fullscreen">FULLSCREEN ALERT</string>
+    <string name="settings_telegram">TELEGRAM OUTPUT</string>
+    <string name="settings_data">DATA MANAGEMENT</string>
+    <string name="settings_export">EXPORT ALL DATA (.TXT)</string>
+    <string name="settings_purge">PURGE SESSION DATA</string>
+    <string name="settings_backup">BACKUP</string>
+    <string name="settings_restore">RESTORE</string>
+    <string name="settings_rooted">ROOTED FEATURES</string>
+    <string name="settings_shizuku">SHIZUKU MODULE</string>
+    <string name="settings_about">ABOUT</string>
+    
+    <!-- Root Features -->
+    <string name="root_raw_packets">RAW PACKET CAPTURE</string>
+    <string name="root_mac_spoof">MAC SPOOF</string>
+    <string name="root_tx_power">TX POWER OVERRIDE</string>
+    <string name="root_always_on">ALWAYS-ON SCAN</string>
+    <string name="root_deep_dump">DEEP PACKET DUMP</string>
+    <string name="root_channel_lock">CHANNEL LOCK</string>
+    <string name="root_stealth_rf">STEALTH RF</string>
+    <string name="root_kernel">KERNEL MONITOR</string>
+    <string name="root_hci_export">HCI LOG EXPORT</string>
+    <string name="root_git_backup">AUTO GIT BACKUP</string>
+    
+    <!-- Shizuku Features -->
+    <string name="shizuku_wake_lock">Wake Lock</string>
+    <string name="shizuku_background_scan">Background Scan</string>
+    <string name="shizuku_privileged">Privileged Permissions</string>
+    <string name="shizuku_screen_off">Screen-Off Scan</string>
+    
+    <!-- Background Types -->
+    <string name="bg_neural">NEURAL NETWORK</string>
+    <string name="bg_particle">PARTICLE FIELD</string>
+    <string name="bg_matrix">MATRIX RAIN</string>
+    <string name="bg_aurora">AURORA</string>
+    <string name="bg_grid">STATIC GRID</string>
+    
+    <!-- Radar Styles -->
+    <string name="radar_tactical">TACTICAL</string>
+    <string name="radar_sonar">SONAR PING</string>
+    <string name="radar_pulse">PULSE WAVE</string>
+    <string name="radar_grid">GRID SCAN</string>
+    <string name="radar_orbital">ORBITAL DOTS</string>
+    
+    <!-- Permissions - Onboarding -->
+    <string name="perm_welcome">WELCOME</string>
+    <string name="perm_callsign">CALLSIGN SETUP</string>
+    <string name="perm_bluetooth">BLUETOOTH ACCESS</string>
+    <string name="perm_bluetooth_desc">Required for BLE scanning of nearby devices. All scanning is performed locally on your device only. No data is transmitted to the internet.</string>
+    <string name="perm_location">LOCATION ACCESS</string>
+    <string name="perm_location_desc">Android requires location permission for BLE scanning due to platform restrictions. Location data is stored locally only and is optional for heatmap and history features. No background tracking or cloud upload.</string>
+    <string name="perm_notifications">NOTIFICATION ACCESS</string>
+    <string name="perm_notifications_desc">Used for detection alerts, persistent scanner notification, and background scan awareness. You can disable alerts in settings without affecting core functionality.</string>
+    <string name="perm_battery">BATTERY OPTIMIZATION</string>
+    <string name="perm_battery_desc">Required for long-running scans and foreground persistence. Disabling battery optimization ensures scan reliability. This is optional but recommended for field operations.</string>
+    <string name="perm_shizuku">SHIZUKU MODULE</string>
+    <string name="perm_shizuku_desc">Optional enhanced system integration. Enables screen-off scanning, stronger persistence, and background stability. Requires Shizuku app installed on device.</string>
+    <string name="perm_root">ROOT ACCESS</string>
+    <string name="perm_root_desc">Advanced operational controls available. Root access provides additional scanning capabilities and system-level integration. Use responsibly.</string>
+    <string name="perm_ready">ARMED &amp; READY</string>
+    <string name="perm_enter_field">ENTER THE FIELD</string>
+    <string name="perm_granted">GRANTED</string>
+    <string name="perm_denied">DENIED</string>
+    <string name="perm_skip">SKIP</string>
+    <string name="perm_next">NEXT</string>
+    <string name="perm_request">REQUEST</string>
+    <string name="perm_retry">RETRY</string>
+    
+    <!-- Notifications -->
+    <string name="notif_channel_scanner">Scanner</string>
+    <string name="notif_channel_alerts">Alerts</string>
+    <string name="notif_scanning">Scanning for BLE devices...</string>
+    <string name="notif_axon_detected">AXON DEVICE DETECTED</string>
+    <string name="notif_threat_detected">THREAT DETECTED</string>
+    
+    <!-- Export -->
+    <string name="export_filename">blue_meanie_scan_%1$s.txt</string>
+    <string name="export_header">BLUE MEANIE APEX SCAN REPORT</string>
+    <string name="export_session">SCAN SESSION</string>
+    <string name="export_devices">DETECTED DEVICES</string>
+    <string name="export_threats">THREAT LOG</string>
+    
+    <!-- Easter Eggs -->
+    <string name="easter_morse">-... .-.. ..- . -- .- -. .. . -.-. ...</string>
+    <string name="easter_binary">01100010 01101100 01110101 01100101 01101101 01100101 01100001 01101110 01101001 01100101 00100011 00100011 00110011</string>
+    
+    <!-- About -->
+    <string name="about_app">APP</string>
+    <string name="about_version">VERSION</string>
+    <string name="about_build">BUILD</string>
+    <string name="about_engine">ENGINE</string>
+    <string name="about_detection">DETECTION</string>
+    <string name="about_engine_desc">BLUETOOTHLESCANNER</string>
+    <string name="about_detection_desc">OUI + NAME + UUID MULTI-FACTOR</string>
+</resources>

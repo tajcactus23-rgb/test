@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- Background Circle -->
+    <path
+        android:fillColor="#1A0A2E"
+        android:pathData="M54,54m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0"/>
+    
+    <!-- Outer Ring -->
+    <path
+        android:strokeColor="#00F0FF"
+        android:strokeWidth="2"
+        android:fillColor="#00000000"
+        android:pathData="M54,54m-45,0a45,45 0,1 1,90 0a45,45 0,1 1,-90 0"/>
+    
+    <!-- Middle Ring -->
+    <path
+        android:strokeColor="#2D2D55"
+        android:strokeWidth="1"
+        android:fillColor="#00000000"
+        android:pathData="M54,54m-30,0a30,30 0,1 1,60 0a30,30 0,1 1,-60 0"/>
+    
+    <!-- Inner Ring -->
+    <path
+        android:strokeColor="#2D2D55"
+        android:strokeWidth="1"
+        android:fillColor="#00000000"
+        android:pathData="M54,54m-15,0a15,15 0,1 1,30 0a15,15 0,1 1,-30 0"/>
+    
+    <!-- Center Dot -->
+    <path
+        android:fillColor="#00F0FF"
+        android:pathData="M54,54m-4,0a4,4 0,1 1,8 0a4,4 0,1 1,-8 0"/>
+    
+    <!-- Sweep Line -->
+    <path
+        android:strokeColor="#00F0FF"
+        android:strokeWidth="2"
+        android:fillColor="#00000000"
+        android:pathData="M54,54L54,9"/>
+    
+    <!-- Crosshairs -->
+    <path
+        android:strokeColor="#2D2D55"
+        android:strokeWidth="0.5"
+        android:fillColor="#00000000"
+        android:pathData="M54,9L54,99"/>
+    <path
+        android:strokeColor="#2D2D55"
+        android:strokeWidth="0.5"
+        android:fillColor="#00000000"
+        android:pathData="M9,54L99,54"/>
+    
+</vector>
