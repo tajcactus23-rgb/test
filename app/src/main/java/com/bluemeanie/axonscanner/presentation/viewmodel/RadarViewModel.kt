@@ -82,10 +82,13 @@ class RadarViewModel @Inject constructor(
             // Create new session
             val session = ScanSessionEntity(
                 startTime = scanStartTime,
-                scanMode = _settings.value.scanMode.name,
+                endTime = null,
+                durationSec = 0,
                 devicesFound = 0,
                 axonHits = 0,
-                durationSec = 0
+                scanMode = _settings.value.scanMode.name,
+                locationLat = null,
+                locationLng = null
             )
             currentSessionId = sessionDao.insertSession(session)
 
@@ -176,6 +179,7 @@ class RadarViewModel @Inject constructor(
                 deviceId = device.id,
                 timestamp = System.currentTimeMillis(),
                 rssi = device.rssi,
+                distanceEstimate = null,
                 type = AlertType.AXON_DETECTED.name
             )
             alertDao.insertAlert(alert)

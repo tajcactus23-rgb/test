@@ -20,6 +20,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.SpanStyle
@@ -88,18 +89,17 @@ fun OnboardingScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // Progress indicator
+        val progressValue = when (currentStep) {
+            is OnboardingStep.Welcome -> 0.1f
+            is OnboardingStep.CallSign -> 0.25f
+            is OnboardingStep.Bluetooth -> 0.4f
+            is OnboardingStep.Location -> 0.55f
+            is OnboardingStep.Notifications -> 0.7f
+            is OnboardingStep.Battery -> 0.85f
+            is OnboardingStep.Ready -> 1f
+        }
         LinearProgressIndicator(
-            progress = {
-                when (currentStep) {
-                    is OnboardingStep.Welcome -> 0.1f
-                    is OnboardingStep.CallSign -> 0.25f
-                    is OnboardingStep.Bluetooth -> 0.4f
-                    is OnboardingStep.Location -> 0.55f
-                    is OnboardingStep.Notifications -> 0.7f
-                    is OnboardingStep.Battery -> 0.85f
-                    is OnboardingStep.Ready -> 1f
-                }
-            },
+            progress = progressValue,
             modifier = Modifier
                 .fillMaxWidth()
                 .height(4.dp)
@@ -300,7 +300,7 @@ fun WelcomeStep(
                 .scale(scale)
                 .clip(CircleShape)
                 .background(colors.surface)
-                .border(2.dp, colors.primary, CircleShape)
+                .border(2.dp, Brush.linearGradient(listOf(colors.primary, colors.secondary)), CircleShape)
                 .clickable(onClick = onLogoTap),
             contentAlignment = Alignment.Center
         ) {

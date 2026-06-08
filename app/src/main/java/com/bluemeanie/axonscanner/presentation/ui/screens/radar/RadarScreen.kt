@@ -43,6 +43,7 @@ import com.bluemeanie.axonscanner.presentation.viewmodel.RadarViewModel
 import com.bluemeanie.axonscanner.util.ThemeEngine
 import kotlin.math.*
 
+@OptIn(ExperimentalTextApi::class)
 @Composable
 fun RadarScreen(
     viewModel: RadarViewModel = hiltViewModel(),

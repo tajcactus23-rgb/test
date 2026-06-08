@@ -21,6 +21,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.bluemeanie.axonscanner.domain.model.ScannedDevice
 import com.bluemeanie.axonscanner.presentation.ui.screens.radar.BottomNavigationBar
 import com.bluemeanie.axonscanner.presentation.ui.theme.BlueMeanieTheme
+import com.bluemeanie.axonscanner.presentation.ui.theme.BlueMeanieColors
 import com.bluemeanie.axonscanner.presentation.viewmodel.RadarViewModel
 import com.bluemeanie.axonscanner.presentation.viewmodel.SettingsViewModel
 import java.text.SimpleDateFormat
@@ -191,7 +192,7 @@ fun StatsOverviewCard(
     totalDevices: Int,
     axonDevices: Int,
     threatDevices: Int,
-    colors: BlueMeanieTheme.colors
+    colors: BlueMeanieColors
 ) {
     Row(
         modifier = Modifier
