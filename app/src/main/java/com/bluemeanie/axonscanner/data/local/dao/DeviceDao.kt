@@ -15,7 +15,7 @@ interface DeviceDao {
     @Query("SELECT * FROM devices WHERE isThreat = 1 ORDER BY lastSeen DESC")
     fun getThreatDevices(): Flow<List<DeviceEntity>>
 
-    @Query("SELECT * FROM devices WHERE macAddress = :mac LIMIT 1")
+    @Query("SELECT * FROM devices WHERE macAddress = :macAddress LIMIT 1")
     suspend fun getDeviceByMac(macAddress: String): DeviceEntity?
 
     @Query("SELECT * FROM devices WHERE id = :id")

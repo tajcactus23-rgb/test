@@ -15,7 +15,8 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
+import java.util.Locale
 import javax.inject.Inject
 
 @HiltViewModel
@@ -189,10 +190,6 @@ class SettingsViewModel @Inject constructor(
             appendLine("│ DETECTED DEVICES                                                       │")
             appendLine("└─────────────────────────────────────────────────────────────────────┘")
             appendLine()
-            
-            val devices = kotlinx.coroutines.runBlocking { 
-                deviceDao.getDeviceByMac("").let { emptyList() }
-            }
             
             appendLine("Total Devices: ${deviceCount.value}")
             appendLine("Total Axon Hits: ${axonCount.value}")
