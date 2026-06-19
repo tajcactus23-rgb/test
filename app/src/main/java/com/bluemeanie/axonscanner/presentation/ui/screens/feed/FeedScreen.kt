@@ -24,6 +24,7 @@ import com.bluemeanie.axonscanner.domain.model.ScannedDevice
 import com.bluemeanie.axonscanner.presentation.ui.screens.radar.BottomNavigationBar
 import com.bluemeanie.axonscanner.presentation.ui.screens.radar.DeviceDetailSheet
 import com.bluemeanie.axonscanner.presentation.ui.theme.BlueMeanieTheme
+import com.bluemeanie.axonscanner.presentation.ui.theme.BlueMeanieColors
 import com.bluemeanie.axonscanner.presentation.viewmodel.RadarViewModel
 
 enum class FeedFilter {
@@ -104,7 +105,7 @@ fun FeedScreen(
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
             placeholder = { Text("Search devices...", color = colors.textMuted) },
-            leadingIcon = { Icon(Icons.Default.Search, tint = colors.textMuted) },
+            leadingIcon = { Icon(Icons.Default.Search, contentDescription = "Search devices", tint = colors.textMuted) },
             colors = OutlinedTextFieldDefaults.colors(
                 focusedBorderColor = colors.primary,
                 unfocusedBorderColor = colors.border,
@@ -286,7 +287,7 @@ fun FilterChip(
     label: String,
     isSelected: Boolean,
     onClick: () -> Unit,
-    colors: BlueMeanieTheme.colors,
+    colors: BlueMeanieColors,
     highlightColor: androidx.compose.ui.graphics.Color? = null
 ) {
     Box(
@@ -314,7 +315,7 @@ fun SortOption(
     label: String,
     isSelected: Boolean,
     onClick: () -> Unit,
-    colors: BlueMeanieTheme.colors
+    colors: BlueMeanieColors
 ) {
     Text(
         text = label,
@@ -329,7 +330,7 @@ fun DeviceCard(
     device: ScannedDevice,
     onClick: () -> Unit,
     onLongPress: () -> Unit,
-    colors: BlueMeanieTheme.colors
+    colors: BlueMeanieColors
 ) {
     val deviceColor = when {
         device.isThreat -> colors.danger

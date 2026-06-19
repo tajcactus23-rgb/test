@@ -26,6 +26,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.rotate
@@ -172,7 +173,7 @@ fun RadarHeader(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp),
+            .padding(start = 16.dp, top = 16.dp, end = 0.dp, bottom = 8.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
     ) {
@@ -213,7 +214,8 @@ fun RadarHeader(
         ScanModeChip(
             mode = settings.scanMode,
             isScanning = isScanning,
-            colors = colors
+            colors = colors,
+            modifier = Modifier.offset(x = 38.dp)
         )
     }
 }
@@ -223,7 +225,8 @@ fun RadarHeader(
 fun ScanModeChip(
     mode: ScanMode,
     isScanning: Boolean,
-    colors: BlueMeanieColors
+    colors: BlueMeanieColors,
+    modifier: Modifier = Modifier
 ) {
     val modeName = when (mode) {
         ScanMode.TACTICAL -> "TACTICAL"
@@ -234,7 +237,7 @@ fun ScanModeChip(
     var showInfo by remember { mutableStateOf(false) }
 
     Row(
-        modifier = Modifier
+        modifier = modifier
             .clip(RoundedCornerShape(16.dp))
             .background(colors.surface)
             .border(1.dp, colors.primary.copy(alpha = 0.5f), RoundedCornerShape(16.dp))
@@ -305,16 +308,24 @@ fun RadarDisplay(
         label = "sweep"
     )
 
-    val radarSize = 280.dp
-    val centerOffset = radarSize.value / 2
-
-    Box(
+    BoxWithConstraints(
         modifier = Modifier
-            .size(radarSize)
-            .clip(CircleShape)
-            .background(ThemeEngine.RadarBackground)
-            .border(2.dp, colors.border, CircleShape)
+            .fillMaxSize()
+            .padding(horizontal = 10.dp, vertical = 6.dp),
+        contentAlignment = Alignment.Center
     ) {
+        val radarSize = minOf(maxWidth - 20.dp, maxHeight - 12.dp)
+            .coerceAtLeast(220.dp)
+            .coerceAtMost(380.dp)
+        val radarShape = radarFrameShape(radarStyle)
+
+        Box(
+            modifier = Modifier
+                .size(radarSize)
+                .clip(radarShape)
+                .background(ThemeEngine.RadarBackground)
+                .border(2.dp, colors.border, radarShape)
+        ) {
         Canvas(
             modifier = Modifier
                 .fillMaxSize()
@@ -322,29 +333,26 @@ fun RadarDisplay(
         ) {
             val radius = size.minDimension / 2
             val center = Offset(size.width / 2, size.height / 2)
+            val inset = size.minDimension * 0.08f
 
-            // Draw range rings
-            for (i in 1..3) {
-                val ringRadius = radius * (i / 3f)
-                drawCircle(
-                    color = ThemeEngine.RadarRing,
-                    radius = ringRadius,
-                    center = center,
-                    style = Stroke(width = 1f)
-                )
-            }
+            drawRadarFrame(
+                radarStyle = radarStyle,
+                center = center,
+                radius = radius,
+                inset = inset,
+                colors = colors
+            )
 
-            // Draw crosshairs
             drawLine(
                 color = ThemeEngine.RadarRing.copy(alpha = 0.5f),
-                start = Offset(center.x, 0f),
-                end = Offset(center.x, size.height),
+                start = Offset(center.x, inset),
+                end = Offset(center.x, size.height - inset),
                 strokeWidth = 1f
             )
             drawLine(
                 color = ThemeEngine.RadarRing.copy(alpha = 0.5f),
-                start = Offset(0f, center.y),
-                end = Offset(size.width, center.y),
+                start = Offset(inset, center.y),
+                end = Offset(size.width - inset, center.y),
                 strokeWidth = 1f
             )
 
@@ -522,6 +530,132 @@ fun RadarDisplay(
                 color = colors.textMuted,
                 modifier = Modifier.align(Alignment.Center)
             )
+        }
+        }
+    }
+}
+
+private fun radarFrameShape(radarStyle: RadarStyle): Shape {
+    return when (radarStyle) {
+        RadarStyle.TACTICAL -> CircleShape
+        RadarStyle.SONAR -> RoundedCornerShape(28.dp)
+        RadarStyle.PULSE -> androidx.compose.foundation.shape.GenericShape { size, _ ->
+            moveTo(size.width / 2f, 0f)
+            lineTo(size.width, size.height / 2f)
+            lineTo(size.width / 2f, size.height)
+            lineTo(0f, size.height / 2f)
+            close()
+        }
+        RadarStyle.GRID -> androidx.compose.foundation.shape.GenericShape { size, _ ->
+            val cut = size.minDimension * 0.16f
+            moveTo(cut, 0f)
+            lineTo(size.width - cut, 0f)
+            lineTo(size.width, cut)
+            lineTo(size.width, size.height - cut)
+            lineTo(size.width - cut, size.height)
+            lineTo(cut, size.height)
+            lineTo(0f, size.height - cut)
+            lineTo(0f, cut)
+            close()
+        }
+        RadarStyle.ORBITAL -> androidx.compose.foundation.shape.GenericShape { size, _ ->
+            val centerX = size.width / 2f
+            val centerY = size.height / 2f
+            val radius = size.minDimension / 2f
+            for (i in 0..5) {
+                val angle = Math.toRadians((i * 60 - 30).toDouble())
+                val x = centerX + (radius * cos(angle)).toFloat()
+                val y = centerY + (radius * sin(angle)).toFloat()
+                if (i == 0) moveTo(x, y) else lineTo(x, y)
+            }
+            close()
+        }
+    }
+}
+
+private fun DrawScope.drawRadarFrame(
+    radarStyle: RadarStyle,
+    center: Offset,
+    radius: Float,
+    inset: Float,
+    colors: BlueMeanieColors
+) {
+    when (radarStyle) {
+        RadarStyle.TACTICAL -> {
+            for (i in 1..3) {
+                drawCircle(
+                    color = ThemeEngine.RadarRing,
+                    radius = radius * (i / 3f),
+                    center = center,
+                    style = Stroke(width = 1f)
+                )
+            }
+        }
+        RadarStyle.SONAR -> {
+            for (i in 1..3) {
+                val pad = inset * i
+                drawRoundRect(
+                    color = ThemeEngine.RadarRing.copy(alpha = 0.75f - i * 0.12f),
+                    topLeft = Offset(pad, pad),
+                    size = androidx.compose.ui.geometry.Size(size.width - pad * 2f, size.height - pad * 2f),
+                    cornerRadius = androidx.compose.ui.geometry.CornerRadius(30f, 30f),
+                    style = Stroke(width = 1.2f)
+                )
+            }
+        }
+        RadarStyle.PULSE -> {
+            for (i in 1..3) {
+                val r = radius * (i / 3f)
+                val path = Path().apply {
+                    moveTo(center.x, center.y - r)
+                    lineTo(center.x + r, center.y)
+                    lineTo(center.x, center.y + r)
+                    lineTo(center.x - r, center.y)
+                    close()
+                }
+                drawPath(
+                    path = path,
+                    color = ThemeEngine.RadarRing.copy(alpha = 0.78f - i * 0.14f),
+                    style = Stroke(width = 1.2f)
+                )
+            }
+        }
+        RadarStyle.GRID -> {
+            val step = radius / 3f
+            for (i in -2..2) {
+                drawLine(
+                    color = ThemeEngine.RadarRing.copy(alpha = 0.35f),
+                    start = Offset(center.x + i * step, inset),
+                    end = Offset(center.x + i * step, size.height - inset),
+                    strokeWidth = 1f
+                )
+                drawLine(
+                    color = ThemeEngine.RadarRing.copy(alpha = 0.35f),
+                    start = Offset(inset, center.y + i * step),
+                    end = Offset(size.width - inset, center.y + i * step),
+                    strokeWidth = 1f
+                )
+            }
+        }
+        RadarStyle.ORBITAL -> {
+            for (i in 1..3) {
+                val sides = 6
+                val r = radius * (i / 3f)
+                val path = Path().apply {
+                    for (point in 0 until sides) {
+                        val angle = Math.toRadians((point * 60 - 30).toDouble())
+                        val x = center.x + (r * cos(angle)).toFloat()
+                        val y = center.y + (r * sin(angle)).toFloat()
+                        if (point == 0) moveTo(x, y) else lineTo(x, y)
+                    }
+                    close()
+                }
+                drawPath(
+                    path = path,
+                    color = colors.primary.copy(alpha = 0.34f - i * 0.05f),
+                    style = Stroke(width = 1.2f)
+                )
+            }
         }
     }
 }
@@ -928,6 +1062,7 @@ fun AxonAlertOverlay(
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DeviceDetailSheet(
     device: ScannedDevice,

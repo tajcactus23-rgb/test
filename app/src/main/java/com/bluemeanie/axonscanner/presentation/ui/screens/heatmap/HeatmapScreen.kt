@@ -27,6 +27,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.bluemeanie.axonscanner.domain.model.ScannedDevice
 import com.bluemeanie.axonscanner.presentation.ui.screens.radar.BottomNavigationBar
 import com.bluemeanie.axonscanner.presentation.ui.theme.BlueMeanieTheme
+import com.bluemeanie.axonscanner.presentation.ui.theme.BlueMeanieColors
 import com.bluemeanie.axonscanner.presentation.viewmodel.RadarViewModel
 import org.osmdroid.config.Configuration
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
@@ -34,7 +35,6 @@ import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
 import org.osmdroid.views.overlay.Marker
 import org.osmdroid.views.overlay.Polygon
-import org.osmdroid.views.overlay.Circle
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -152,9 +152,11 @@ fun HeatmapScreen(
                                     -74.0060 + (Math.random() - 0.5) * 0.01
                                 )
                                 
-                                val circle = Circle().apply {
-                                    center = devicePoint
-                                    radius = if (device.isAxon) 50.0 else 30.0
+                                val circle = Polygon().apply {
+                                    points = Polygon.pointsAsCircle(
+                                        devicePoint,
+                                        if (device.isAxon) 50.0 else 30.0
+                                    )
                                     fillPaint.color = android.graphics.Color.argb(
                                         if (device.isAxon) 100 else 50,
                                         if (device.isAxon) 255 else 0,
@@ -302,7 +304,7 @@ fun ToggleChip(
     label: String,
     isSelected: Boolean,
     onClick: () -> Unit,
-    colors: BlueMeanieTheme.colors
+    colors: BlueMeanieColors
 ) {
     Box(
         modifier = Modifier

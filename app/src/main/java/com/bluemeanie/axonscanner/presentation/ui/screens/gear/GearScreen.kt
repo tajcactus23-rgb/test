@@ -23,6 +23,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.bluemeanie.axonscanner.domain.model.*
 import com.bluemeanie.axonscanner.presentation.ui.screens.radar.BottomNavigationBar
 import com.bluemeanie.axonscanner.presentation.ui.theme.BlueMeanieTheme
+import com.bluemeanie.axonscanner.presentation.ui.theme.BlueMeanieColors
 import com.bluemeanie.axonscanner.presentation.viewmodel.FontType
 import com.bluemeanie.axonscanner.presentation.viewmodel.SettingsViewModel
 import com.bluemeanie.axonscanner.presentation.viewmodel.TelegramStatus
@@ -275,7 +276,7 @@ fun GearScreen(
                     onUpdate = { family, size -> viewModel.updateFontSettings(fontType, family, size) },
                     colors = colors
                 )
-                HorizontalDivider(color = colors.border, modifier = Modifier.padding(vertical = 8.dp))
+                Divider(color = colors.border, modifier = Modifier.padding(vertical = 8.dp))
             }
         }
 
@@ -766,7 +767,7 @@ fun SettingsSection(
     title: String,
     isExpanded: Boolean,
     onToggle: () -> Unit,
-    colors: BlueMeanieTheme.colors,
+    colors: BlueMeanieColors,
     content: @Composable ColumnScope.() -> Unit
 ) {
     Column(
@@ -814,7 +815,7 @@ fun RadioOption(
     description: String,
     isSelected: Boolean,
     onClick: () -> Unit,
-    colors: BlueMeanieTheme.colors
+    colors: BlueMeanieColors
 ) {
     Row(
         modifier = Modifier
@@ -852,7 +853,7 @@ fun ThemeOption(
     theme: ThemeType,
     isSelected: Boolean,
     onClick: () -> Unit,
-    colors: BlueMeanieTheme.colors
+    colors: BlueMeanieColors
 ) {
     val themeColors = ThemeEngine.themes[theme.name]
     val primary = themeColors?.primary ?: colors.primary
@@ -887,7 +888,7 @@ fun FontSection(
     currentFamily: String,
     currentSize: Int,
     onUpdate: (String, Int) -> Unit,
-    colors: BlueMeanieTheme.colors
+    colors: BlueMeanieColors
 ) {
     val fontFamilies = listOf(
         "JetBrains Mono",
@@ -971,7 +972,7 @@ fun ToggleRow(
     label: String,
     isEnabled: Boolean,
     onToggle: (Boolean) -> Unit,
-    colors: BlueMeanieTheme.colors
+    colors: BlueMeanieColors
 ) {
     Row(
         modifier = Modifier.fillMaxWidth(),
@@ -998,7 +999,7 @@ fun ToggleRow(
 fun AboutRow(
     label: String,
     value: String,
-    colors: BlueMeanieTheme.colors
+    colors: BlueMeanieColors
 ) {
     Row(
         modifier = Modifier

@@ -187,8 +187,8 @@ class BleRepository @Inject constructor(
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && scanRecord != null) {
             scanRecord.manufacturerSpecificData?.let { data ->
                 for (i in 0 until data.size()) {
-                    val manufacturerId = data.getKey(i)
-                    val companyData = data.getValue(i)
+                    val manufacturerId = data.keyAt(i)
+                    val companyData = data.valueAt(i)
                     if (companyData != null) {
                         manufacturerData[manufacturerId] = companyData
                     }
